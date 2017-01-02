@@ -21,7 +21,7 @@ This is a collection of questions and code snippets that I found helpful in deve
 ### Add a background image to a TableView
 ##### Source: [GrokSwift](https://grokswift.com/transparent-table-view/)
 
-```sh
+```swift
 override func viewWillAppear(animated: Bool) {
     self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
     super.viewWillAppear(animated)
@@ -34,7 +34,7 @@ override func viewWillAppear(animated: Bool) {
 
 ### Add a background image to a table cell
 ##### Source: [StackOverflow](http://stackoverflow.com/questions/24855002/how-do-i-set-the-background-image-size-of-a-table-cell-in-swift)
-```sh
+```swift
 let imageView = UIImageView(frame: CGRectMake(10, 10, cell.frame.width - 10, cell.frame.height - 10))
 let image = UIImage(named: "Image Name")
 imageView.image = image
@@ -45,7 +45,7 @@ cell.backgroundView!.addSubview(imageView)
 ##### Source: [Hacking With Swift](https://www.hackingwithswift.com/example-code/uikit/how-to-add-a-section-header-to-a-table-view)
 
 To just add some text - quick and dirty
-```sh
+```swift
 override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     return "Section \(section)"
 }
@@ -53,7 +53,7 @@ override func tableView(_ tableView: UITableView, titleForHeaderInSection sectio
 If you want to return a custom header view with something more than just some text, you should use `viewForHeaderInSection` instead, like this:
 ##### Source: [StackOverflow](http://stackoverflow.com/questions/31964941/swift-how-to-make-custom-header-for-uitableview)
 In `func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?` add the following:
-```sh
+```swift
 // set the height of the header
 self.tableView.sectionHeaderHeight = 70
 // create subviews for the header content
@@ -68,7 +68,7 @@ view.addSubview(label)
 ##### Source: [StackOverflow](http://stackoverflow.com/questions/38740648/how-to-set-status-bar-style-in-swift-3)
 
 Override the `preferredStatusBarStyle` property in the ViewController
-```sh
+```swift
 override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
 }
@@ -77,7 +77,7 @@ override var preferredStatusBarStyle: UIStatusBarStyle {
 ### Modify the border of a TextView or TextField
 ##### Source: [StackOverflow](http://stackoverflow.com/questions/38740648/how-to-set-status-bar-style-in-swift-3)
  
-```sh
+```swift
 @IBOutlet weak var email: UITextField!
 @IBOutlet weak var pass: UITextField!
 
@@ -96,7 +96,7 @@ override var preferredStatusBarStyle: UIStatusBarStyle {
 
 ### Convert Unix timestamp to Date
 ##### Source: [StackOverflow](http://stackoverflow.com/questions/29670585/how-to-convert-unix-epoc-time-to-date-and-time-in-ios-swift)
-```sh
+```swift
 let epocTime = NSTimeInterval(1429162809359) / 1000
 let myDate = NSDate(timeIntervalSince1970:  epocTime)
 print("Converted Time \(myDate)")
@@ -105,17 +105,17 @@ print("Converted Time \(myDate)")
 ### Get a users timezone
 ##### Source: [StackOverflow](http://stackoverflow.com/questions/27053135/how-to-get-a-users-time-zone)
 [Leo Dabus](http://stackoverflow.com/users/2303865/leo-dabus) provided an excellent and very detailed answer. Below are just some of the highlights. 
-```sh
+```swift
 var secondsFromGMT: Int { return NSTimeZone.local.secondsFromGMT() }
 secondsFromGMT  // -10800
 ```
 If you need the abbreviation you can do like this:
-```sh
+```swift
 var localTimeZoneAbbreviation: String { return NSTimeZone.local.abbreviation(for: Date()) ?? ""}
 localTimeZoneAbbreviation  // "GMT-3"
 ```
 If you need the name you can do like this:
-```sh
+```swift
 var localTimeZoneName: String { return (NSTimeZone.local as NSTimeZone).name }
 localTimeZoneName // "America/Sao_Paulo"
 ```
@@ -123,7 +123,7 @@ localTimeZoneName // "America/Sao_Paulo"
 ##### Source: [StackOverflow](http://stackoverflow.com/questions/28813339/move-a-view-up-only-when-the-keyboard-covers-an-input-field)
 Comments: I tried the answer, at the time of this writing it had 7 votes, that moved the entire view. As one commenter pointed out that is not the optimal solution and it did cause my app to crash and behave unpredictably.
 
-```sh
+```swift
 func registerForKeyboardNotifications(){
     //Adding notifies on keyboard appearing
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -181,7 +181,7 @@ func textFieldDidEndEditing(_ textField: UITextField){
 >**Secondly** the animation parameters can be pulled from the notification to ensure that animations are properly together.
 >There are probably options to clean up this code a bit more especially if you are comfortable with force unwrapping the dictionary code.
 
-```sh
+```swift
 class MyViewController: UIViewController {
 
 // This constraint ties an element at zero points from the bottom layout guide
@@ -222,7 +222,7 @@ func keyboardNotification(notification: NSNotification) {
 Comments: A couple of options here from a few different sources.
 
 Get the number of days between two dates
-```sh
+```swift
 // How many days between Valentine's Day and St. Patrick's Day?
 let dayCalendarUnit: NSCalendarUnit = [.Day]
 let stPatricksValentinesDayDifference = userCalendar.components(
@@ -238,14 +238,14 @@ stPatricksValentinesDayDifference.day
 ### Convert a date string to a Date
 ##### Source: [StackOverflow](http://stackoverflow.com/questions/24777496/how-can-i-convert-string-date-to-nsdate)
 Comments: see http://userguide.icu-project.org/formatparse/datetime for formatting codes
-```sh
+```swift
 let dateFormatter = DateFormatter()
 dateFormatter.dateFormat = "yyyy-MM-dd kk:mm:ss" //kk for 24h 
 let date = dateFormatter.date(from: "2017-01-02 11:34:45")
 ```
 
 Or if you want to return a timestamp from a date string
-```sh
+```swift
 func convertDateFormatter(date: String) -> String
 {
 
@@ -264,7 +264,7 @@ func convertDateFormatter(date: String) -> String
 }
 ```
 If you want to go the extra mile and create ans extension on String
-```sh
+```swift
 extension String
 {   
     func toDateTime() -> NSDate
@@ -292,7 +292,7 @@ Comments: Not difficult at all but not easily boiled down to a neat snippet. As 
 ### Navigate to a specific TabBar tab
 ##### Source:
 Comment: Not sure where I got this from
-```sh
+```swift
 if self.window!.rootViewController as? UITabBarController != nil {
     let tababarController = self.window!.rootViewController as! UITabBarController
     tababarController.selectedIndex = 2
@@ -304,7 +304,7 @@ if self.window!.rootViewController as? UITabBarController != nil {
 Comment:
 
 `self.selectedIndex` will not return the selected index right away. To check which item is being pressed, we would need to compare the item with the tabBarItems in our UITabBarController
-```sh
+```swift
 override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
     if item == (self.tabBar.items as! [UITabBarItem])[0]{ 
        //Do something if index is 0
@@ -317,7 +317,7 @@ override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
 ### Get UIColor from HEX
 ##### Source: [Coder Wall](https://coderwall.com/p/6rfitq/ios-ui-colors-with-hex-values-in-swfit)
 Comments: Nice little function that returns a UIColor from a HEX value
-```sh
+```swift
 func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
     let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
     let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
@@ -338,7 +338,7 @@ loadingView.backgroundColor = UIColorFromHex(0x444444, alpha: 0.7)
 ### Lock orientation to portrait mode
 ##### Source: [StackOverflow](http://stackoverflow.com/questions/28938660/how-to-lock-orientation-of-one-view-controller-to-portrait-mode-only-in-swift)
 Comment: The accepted answer relies on a setting in XCode that is no longer available. The next answer worked without issue. Add this code to every view that needs to be locked into a specific orientation.
-```sh
+```swift
 override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -364,7 +364,7 @@ override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrien
 }
 ```
 In your AppDelegate - set supportedInterfaceOrientationsForWindow to whatever orientations you want the entire application to support:
-```sh
+```swift
 func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask {
     return UIInterfaceOrientationMask.All
 } 
