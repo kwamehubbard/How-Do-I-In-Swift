@@ -178,6 +178,7 @@ func textFieldDidEndEditing(_ textField: UITextField){
 ##### Source: [StackOverflow](http://stackoverflow.com/questions/25693130/move-textfield-when-keyboard-appears-swift)
 ##### Comments:
 >**Firstly** the UIKeyboardWillChangeFrameNotification is probably the best >notification as it handles changes that aren't just show/hide but changes due >to keyboard changes (language, using 3rd party keyboards etc.) and rotations too.
+
 >**Secondly** the animation parameters can be pulled from the notification to ensure that animations are properly together.
 >There are probably options to clean up this code a bit more especially if you are comfortable with force unwrapping the dictionary code.
 
