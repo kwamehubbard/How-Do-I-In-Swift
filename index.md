@@ -2,19 +2,19 @@
 
 This is a collection of questions and code snippets that I found helpful in developing my first iOS app. 
 
-1. [Add a background image to a TableView](#Add-a-background-image-to-a-TableView)
-2. [Add a background image to a table cell](#Add-a-background-image-to-a-table-cell)
-3. [Add a header to TableView](#Add-a-header-to-a-TableView)
-4. [Change the status bar style](#Change-the-status-bar-style)
-5. [Modify the border of a TextView or TextField](#Modify-the-border-of-a-textview-or-textfield)
+1. [Add a background image to a TableView](#add-a-background-image-to-a-tableview)
+2. [Add a background image to a table cell](#add-a-background-image-to-a-table-cell)
+3. [Add a header to TableView](#add-a-header-to-a-TableView)
+4. [Change the status bar style](#change-the-status-bar-style)
+5. [Modify the border of a TextView or TextField](#modify-the-border-of-a-textview-or-textfield)
 6. [Convert Unix timestamp to Date](#convert-Unix-timestamp-to-date)
 7. [Get a user's timezone](#get-a-users-timezone)
 8. [Move a view up only when the keyboard covers an input field](#move-a-view-up-only-when-the-keyboard-covers-an-input-field)
-9. [Calculate elapsed time](#Calculate-elasped-time)
+9. [Calculate elapsed time](#calculate-elasped-time)
 10. [Conver a date string to a Date](#convert-a-date-string-to-a-date)
-11. [Make dynamically sized TableView cells](#Make-dynamically-sized-TableView-cells)
-12. [Navigate to a specific TabBar tab](#Navigate-to-a-specific-TabBar-tab)
-13. [Detect UITabBar Selected Index/ Item Changes that is set Programmatically](#Detect-UITabBar-Selected-Index/-Item-Changes-that-is-set-Programmatically)
+11. [Make dynamically sized TableView cells](#make-dynamically-sized-TableView-cells)
+12. [Navigate to a specific TabBar tab](#navigate-to-a-specific-tabbar-tab)
+13. [Detect UITabBar Selected Index/ Item Changes that is set Programmatically](#detect-uitabBar-selected-index/-item-changes-that-is-set-programmatically)
 14. [Get UIColor from HEX](#get-uicolor-from-hex)
 15. [Lock orientation to portrait mode](#lock-orientation-to-portrait-mode)
 
