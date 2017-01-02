@@ -177,11 +177,10 @@ func textFieldDidEndEditing(_ textField: UITextField){
 #### Another approach
 ##### Source: [StackOverflow](http://stackoverflow.com/questions/25693130/move-textfield-when-keyboard-appears-swift)
 ##### Comments:
->Firstly the UIKeyboardWillChangeFrameNotification is probably the best >notification as it handles changes that aren't just show/hide but changes due >to keyboard changes (language, using 3rd party keyboards etc.) and rotations too.
-
->Secondly the animation parameters can be pulled from the notification to ensure that animations are properly together.
-
+>**Firstly** the UIKeyboardWillChangeFrameNotification is probably the best >notification as it handles changes that aren't just show/hide but changes due >to keyboard changes (language, using 3rd party keyboards etc.) and rotations too.
+>**Secondly** the animation parameters can be pulled from the notification to ensure that animations are properly together.
 >There are probably options to clean up this code a bit more especially if you are comfortable with force unwrapping the dictionary code.
+
 ```sh
 class MyViewController: UIViewController {
 
@@ -219,7 +218,7 @@ func keyboardNotification(notification: NSNotification) {
     }
 }
 ```
-##### Source: [Global Nerdy](http://www.globalnerdy.com/2015/01/29/how-to-work-with-dates-and-times-in-swift-part-two-calculations-with-dates/)
+##### Source: [GlobalNerdy](http://www.globalnerdy.com/2015/01/29/how-to-work-with-dates-and-times-in-swift-part-two-calculations-with-dates/)
 Comments: A couple of options here from a few different sources.
 
 Get the number of days between two dates
@@ -234,6 +233,7 @@ let stPatricksValentinesDayDifference = userCalendar.components(
 // The result should be 31
 stPatricksValentinesDayDifference.day
 ```
+
 
 ### Convert a date string to a Date
 ##### Source: [StackOverflow](http://stackoverflow.com/questions/24777496/how-can-i-convert-string-date-to-nsdate)
