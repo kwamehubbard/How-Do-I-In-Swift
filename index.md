@@ -219,6 +219,37 @@ func keyboardNotification(notification: NSNotification) {
     }
 }
 ```
+#### Third Approach
+##### Source: [Hacking With Swift](https://www.hackingwithswift.com/example-code/uikit/how-to-adjust-a-uiscrollview-to-fit-the-keyboard)
+##### Comments: I implemented their solution and although it did not work I did not notice that it caused any instability in the app.
+
+Add the following to `viewDidLoad` 
+```swift
+let notificationCenter = NotificationCenter.default
+notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
+notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+```
+Add this method somewhere in your ViewController
+```swift
+func adjustForKeyboard(notification: Notification) {
+    let userInfo = notification.userInfo!
+
+    let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+    let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+    if notification.name == Notification.Name.UIKeyboardWillHide {
+        yourTextView.contentInset = UIEdgeInsets.zero
+    } else {
+        yourTextView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+    }
+
+    yourTextView.scrollIndicatorInsets = yourTextView.contentInset
+
+    let selectedRange = yourTextView.selectedRange
+    yourTextView.scrollRangeToVisible(selectedRange)
+}
+```
+
 ##### Source: [GlobalNerdy](http://www.globalnerdy.com/2015/01/29/how-to-work-with-dates-and-times-in-swift-part-two-calculations-with-dates/)
 Comments: A couple of options here from a few different sources.
 
