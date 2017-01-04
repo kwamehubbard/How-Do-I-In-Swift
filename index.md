@@ -11,7 +11,7 @@ This is a collection of questions and code snippets that I found helpful in deve
 7. [Get a user's timezone](#get-a-users-timezone)
 8. [Move a view up only when the keyboard covers an input field](#move-a-view-up-only-when-the-keyboard-covers-an-input-field)
 9. [Calculate elapsed time](#calculate-elasped-time)
-10. [Conver a date string to a Date](#convert-a-date-string-to-a-date)
+10. [Convert a date string to a Date](#convert-a-date-string-to-a-date)
 11. [Make dynamically sized TableView cells](#make-dynamically-sized-TableView-cells)
 12. [Navigate to a specific TabBar tab](#navigate-to-a-specific-tabbar-tab)
 13. [Detect UITabBar Selected Index/ Item Changes that is set Programmatically](#detect-uitabBar-selected-index/-item-changes-that-is-set-programmatically)
